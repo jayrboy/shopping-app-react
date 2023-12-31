@@ -3,7 +3,7 @@ import { useCart } from "../contact/CartContext";
 
 export default function Item(props) {
   const { id, name, price, image, quantity } = props;
-  const { formatMoney } = useCart();
+  const { formatMoney, removeItem } = useCart();
 
   return (
     <div className="card">
@@ -18,7 +18,7 @@ export default function Item(props) {
         <button>-</button>
       </div>
       <div className="total-price">{formatMoney(quantity * price)}</div>
-      <button>ลบสินค้า</button>
+      <button onClick={() => removeItem(id)}>ลบสินค้า</button>
     </div>
   );
 }
