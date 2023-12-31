@@ -4,14 +4,14 @@ const products = [
     name: "หมวก",
     image: "assets/product1.png",
     price: 2000,
-    quantity: 1,
+    quantity: 3,
   },
   {
     id: 2,
     name: "หูฟัง",
     image: "assets/product2.jpg",
     price: 1500,
-    quantity: 1,
+    quantity: 2,
   },
   {
     id: 3,

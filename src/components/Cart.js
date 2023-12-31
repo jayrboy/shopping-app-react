@@ -1,12 +1,14 @@
 import Item from "./Item";
+import { useCart } from "../contact/CartContext";
 
 export default function Cart() {
+  const { products } = useCart();
+
   return (
-    <>
-      <div className="App">
-        <Item />
-        <Item />
-      </div>
-    </>
+    <div className="cart">
+      {products.map((data) => {
+        return <Item key={data.id} {...data} />;
+      })}
+    </div>
   );
 }
