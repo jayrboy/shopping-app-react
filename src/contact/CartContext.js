@@ -20,13 +20,19 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE", payload: id });
   }
 
+  function addQuantity(id) {
+    dispatch({ type: "ADD", payload: id });
+  }
+
   useEffect(() => {
     console.log("คำนวณหาผลรวม");
     dispatch({ type: "CALCULATE_TOTAL" });
   }, [state.products]);
 
   return (
-    <CartContext.Provider value={{ ...state, formatMoney, removeItem }}>
+    <CartContext.Provider
+      value={{ ...state, formatMoney, removeItem, addQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );
