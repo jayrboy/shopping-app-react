@@ -24,6 +24,10 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: "ADD", payload: id });
   }
 
+  function subtractQuantity(id) {
+    dispatch({ type: "SUBTRACT", payload: id });
+  }
+
   useEffect(() => {
     console.log("คำนวณหาผลรวม");
     dispatch({ type: "CALCULATE_TOTAL" });
@@ -31,7 +35,13 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, formatMoney, removeItem, addQuantity }}
+      value={{
+        ...state,
+        formatMoney,
+        removeItem,
+        addQuantity,
+        subtractQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
