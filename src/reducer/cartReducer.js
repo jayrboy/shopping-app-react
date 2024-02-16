@@ -1,66 +1,66 @@
-const CartReducer = (state, action) => {
-  // กระบวนการจัดการ state ผ่าน
-  if (action.type === "CALCULATE_TOTAL") {
+const cartReducer = (state, action) => {
+  // กระบวนการจัดการ state ผ่าน action
+  if (action.type === 'CALCULATE_TOTAL') {
     const { total, amount } = state.products.reduce(
       (cartTotal, item) => {
-        const { price, quantity } = item;
-        const totalPrice = price * quantity; // ยอดรวมสินค้าแต่ละรายการ
-        cartTotal.total += totalPrice; // จำนวนเงินรวม
-        cartTotal.amount += quantity; // ปริมาณรวม
-        return cartTotal;
+        const { price, quantity } = item
+        const totalPrice = price * quantity // ยอดรวมสินค้าแต่ละรายการ
+        cartTotal.total += totalPrice // จำนวนเงินรวม
+        cartTotal.amount += quantity // ปริมาณรวม
+        return cartTotal
       },
       {
         total: 0,
         amount: 0,
       }
-    );
+    )
     return {
       ...state,
       total,
       amount,
-    };
+    }
   }
 
-  if (action.type === "REMOVE") {
+  if (action.type === 'REMOVE') {
     return {
       ...state,
       products: state.products.filter((item) => item.id !== action.payload),
-    };
+    }
   }
 
-  if (action.type === "ADD") {
+  if (action.type === 'ADD') {
     let updateProduct = state.products.map((item) => {
       if (item.id === action.payload) {
         return {
           ...item,
           quantity: item.quantity + 1,
-        };
+        }
       }
-      return item;
-    });
+      return item
+    })
     return {
       ...state,
       products: updateProduct,
-    };
+    }
   }
 
-  if (action.type === "SUBTRACT") {
+  if (action.type === 'SUBTRACT') {
     let updateProduct = state.products
       .map((item) => {
         if (item.id === action.payload) {
           return {
             ...item,
             quantity: item.quantity - 1,
-          };
+          }
         }
-        return item;
+        return item
       })
-      .filter((item) => item.quantity !== 0);
+      .filter((item) => item.quantity !== 0)
     return {
       ...state,
       products: updateProduct,
-    };
+    }
   }
-};
+}
 
-export default CartReducer;
+export default cartReducer

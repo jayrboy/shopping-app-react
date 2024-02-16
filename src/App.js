@@ -1,5 +1,5 @@
-import Header from "./components/Header";
-import Cart from "./components/Cart";
+import Header from './components/Header'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <Header />
       <Cart />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
