@@ -4,35 +4,23 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 5px;
-  margin: 10px 65px;
+  margin: 10px auto;
   padding: 15px;
 }
 
 img {
-  width: 150px;
-  height: 100px;
-  margin-left: 10px;
-}
-
-.product {
+  width: 100px;
+  border-radius: 5px;
 }
 
 .name {
-  width: 120px;
   margin-right: 10px;
-}
-
-.price {
-}
-
-.quantity {
-  margin-right: 60px;
 }
 
 input {
   border: none;
   text-align: center;
-  width: 32px;
+  width: 30px;
   font-size: 15px;
 }
 
@@ -43,9 +31,4 @@ button {
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
-}
-.text {
-}
-
-.total-price {
 }

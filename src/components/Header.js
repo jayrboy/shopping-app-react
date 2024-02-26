@@ -1,5 +1,6 @@
 import './Header.css'
 import { useCart } from '../contact/CartContext'
+import { GiShoppingCart } from 'react-icons/gi'
 
 export default function Header() {
   const { amount } = useCart()
@@ -7,7 +8,9 @@ export default function Header() {
   return (
     <header>
       <p>Shopping Application</p>
-      <p>สินค้าในตระกร้า : {amount}</p>
+      <p>
+        <GiShoppingCart /> ตะกร้าสินค้า : {amount}
+      </p>
     </header>
   )
 }
